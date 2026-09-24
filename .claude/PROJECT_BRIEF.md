@@ -28,7 +28,7 @@ Deployed on **Vercel's free Hobby plan** as a personal, non-commercial portfolio
 
 ## 2. Privacy rules (non-negotiable)
 
-- Refer to the owner only as **"Ben C"**. Never write a full surname anywhere on the site, in metadata, alt text or structured data.
+- Refer to the owner only as **"Ben C"** in all site text, metadata, alt text and structured data. Never expand the name.
 - Location: **"Canberra, Australia"** only. No suburb, street or postcode.
 - **No phone number and no email address** in the page or source. Contact is via a form only.
 - **No public CV download.** Instead: "Full CV and referees available on request" with a link to the contact form.

@@ -6,7 +6,7 @@ export interface LinkItem {
 }
 
 export interface SiteContent {
-  /** The owner's public name. "Ben C" only; never a surname. */
+  /** The owner's public name: "Ben C". */
   name: string;
   brand: string;
   location: string;
@@ -14,6 +14,8 @@ export interface SiteContent {
   nav: LinkItem[];
   /** External profiles. Entries with an empty href are hidden. */
   social: LinkItem[];
+  /** Independent review sources that back up the testimonials. */
+  reviews: LinkItem[];
   hero: {
     eyebrow: string;
     headline: string;

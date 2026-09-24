@@ -14,10 +14,19 @@ export const site: SiteContent = {
     { label: "Contact", href: "/#contact" },
   ],
 
-  // TODO: add profile URLs. Links with an empty href are hidden.
+  // Links with an empty href are hidden.
   social: [
-    { label: "LinkedIn", href: "" },
-    { label: "GitHub", href: "" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/ben-cusack-b1254b21a/",
+    },
+    { label: "GitHub", href: "https://github.com/cusabe" },
+  ],
+
+  // Shown with the testimonials (Phase 6) as proof the reviews are real.
+  reviews: [
+    { label: "OzLance", href: "https://ozlance.com.au/profile/cub/worker" },
+    { label: "Google Reviews", href: "https://g.co/kgs/Y3xW3F8" },
   ],
 
   hero: {

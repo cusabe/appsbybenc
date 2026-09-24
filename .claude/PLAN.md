@@ -38,6 +38,7 @@ The access key is designed to be public. It can only send mail to you.
 ```
 PortfolioWebsite/                  (git repo "appsbybenc")
 ├─ .claude/                        # CLAUDE.md, AGENTS.md, this plan and the brief
+├─ design/                         # logo brief and source files (not published)
 ├─ README.md
 ├─ .env.example                    # documents the env vars, no real values
 ├─ next.config.ts
@@ -69,7 +70,7 @@ PortfolioWebsite/                  (git repo "appsbybenc")
 │  └─ theme.ts                     # theme script + helpers
 └─ public/
    └─ images/                      # ← DROP FOLDER for your assets
-      ├─ logo.png                  # cartoon self-portrait (square, ≥ 512×512 ideally)
+      ├─ logo-abc-light/dark.png   # placeholder wordmark (see design/LOGO_BRIEF.md)
       ├─ ngunnawal-skies.jpg       # hero photo (supplied)
       ├─ projects/                 # one image per project, named by slug, e.g. bntrx.jpg
       └─ og/                       # social share images (1200×630)
@@ -218,7 +219,7 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 - Metadata, OG/Twitter images, `sitemap.xml`, `robots.txt`, `Person` JSON-LD ("Ben C" only)
 - Keyboard pass, focus states, alt text, reduced motion, contrast in both themes
 - Lighthouse runs (target 95+ on all four)
-- **Privacy sweep:** search the built `out/` folder for surname, email, phone and months
+- **Privacy sweep:** check the built `out/` folder and the repo against the list in `.claude/PRIVATE.md` (local only)
 - Decide whether `/style-tile` goes public now (drop `noindex`) or waits for the "How I built this" section
 - README (edit content, run locally, deploy to Vercel, static export to S3)
 - **Checkpoint:** Lighthouse scores and privacy sweep results reviewed together.

@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/ui/Logo";
 import { Tag } from "@/components/ui/Tag";
 import { fontPairs, type FontStatus } from "./fonts";
 import { ContrastRow, Swatch } from "./LiveTokens";
@@ -111,6 +112,52 @@ export default function StyleTile() {
                 Cream to peach to coral-pink to gold, taken from the photo.
                 Crisp at any size, and weighs nothing.
               </p>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Brand marks">
+          <p className="max-w-2xl text-sm text-muted">
+            The &ldquo;Ben See&rdquo; glasses are the favicon and header mark,
+            redrawn as SVG from the original 16px icon. The stacked ABC wordmark
+            is a placeholder in the footer until the redesign is ready (brief in{" "}
+            <code className="font-mono">design/LOGO_BRIEF.md</code>).
+          </p>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="space-y-4 rounded-2xl border border-border bg-surface p-6 shadow-soft">
+              <p className="text-xs font-semibold tracking-widest text-muted uppercase">
+                Ben See glasses · 16, 24, 44, 96 and 160px
+              </p>
+              <div className="flex flex-wrap items-end gap-6">
+                {[16, 24, 44, 96, 160].map((w) => (
+                  <Logo key={w} width={w} />
+                ))}
+              </div>
+              <div className="flex items-center gap-2.5 font-heading text-lg font-bold text-heading">
+                <Logo />
+                <span>Apps by Ben C</span>
+              </div>
+            </div>
+            <div className="space-y-4 rounded-2xl border border-border bg-surface p-6 shadow-soft">
+              <p className="text-xs font-semibold tracking-widest text-muted uppercase">
+                ABC wordmark (placeholder) · follows the theme
+              </p>
+              <div className="w-40">
+                <Image
+                  src="/images/logo-abc-light.png"
+                  alt="Apps by Ben C logo"
+                  width={591}
+                  height={591}
+                  className="dark:hidden"
+                />
+                <Image
+                  src="/images/logo-abc-dark.png"
+                  alt="Apps by Ben C logo"
+                  width={591}
+                  height={591}
+                  className="hidden dark:block"
+                />
+              </div>
             </div>
           </div>
         </Section>
