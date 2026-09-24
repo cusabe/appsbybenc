@@ -246,4 +246,4 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 ## 8. Future ideas
 
 - **"How I built this" pages:** a few pages on building the site with Claude Code. The style tile (`/style-tile`) is the first; it shows the palette, contrast checks and the font decisions.
-- **Both hero styles:** CSS gradient for the main hero; the sunset photo for the About band, the footer behind the Acknowledgement of Country, and the social share image.
+- **Both hero styles:** the sunset photo is the main hero (zoomed in) and the footer band (panorama). The pure-CSS gradient is a candidate for the final Contact call to action (Phase 7), plus card art.

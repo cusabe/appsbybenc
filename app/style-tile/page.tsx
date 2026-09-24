@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
@@ -48,7 +47,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 
 export default function StyleTile() {
   return (
-    <main className="py-10">
+    <div className="py-10">
       <Container>
         <header className="flex flex-wrap items-start justify-between gap-4 pb-8">
           <div className="space-y-2">
@@ -60,7 +59,7 @@ export default function StyleTile() {
             </h1>
             <p className="max-w-2xl text-muted">
               Every colour, font and building block in one place. Flip the theme
-              with the toggle. Colours live in{" "}
+              with the toggle in the header. Colours live in{" "}
               <code className="font-mono text-sm">app/globals.css</code>; edit a
               hex, save, and refresh to see the swatches and contrast ratios
               update.
@@ -69,19 +68,31 @@ export default function StyleTile() {
               ← Home
             </Link>
           </div>
-          <ThemeToggle />
         </header>
 
-        <Section title="Hero gradient">
+        <Section title="Hero styles">
+          <p className="max-w-2xl text-sm text-muted">
+            The home page hero uses the photo, zoomed in on the coral streaks.
+            The footer shows the same photo as a wide panorama. The pure-CSS
+            gradient is kept for card art and anywhere a photo would be too
+            busy.
+          </p>
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="flex min-h-72 flex-col justify-center gap-4 rounded-3xl border border-border bg-hero p-8 shadow-soft">
-              <h3 className="text-3xl font-bold tracking-tight">
+            <div className="relative isolate flex min-h-72 flex-col justify-center gap-4 overflow-hidden rounded-3xl border border-border p-8 shadow-soft">
+              <Image
+                src="/images/ngunnawal-skies.jpg"
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="-z-10 scale-110 object-cover object-[center_45%]"
+              />
+              <div className="absolute inset-0 -z-10 bg-linear-to-r from-bg from-25% via-bg/70 to-transparent" />
+              <p className="text-xs font-semibold tracking-widest text-accent uppercase">
+                In use · Home page hero
+              </p>
+              <h3 className="max-w-sm text-3xl font-bold tracking-tight">
                 Hi, I&apos;m Ben C, a full-stack developer in Canberra.
               </h3>
-              <p className="max-w-md">
-                I build and ship production web apps, from medtech and fintech
-                platforms to small-business websites that just work.
-              </p>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="#">See my work</ButtonLink>
                 <ButtonLink href="#" variant="secondary">
@@ -89,20 +100,16 @@ export default function StyleTile() {
                 </ButtonLink>
               </div>
             </div>
-            <div className="relative isolate flex min-h-72 flex-col justify-center gap-4 overflow-hidden rounded-3xl border border-border p-8 shadow-soft">
-              <Image
-                src="/images/ngunnawal-skies.jpg"
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="-z-10 object-cover"
-              />
-              <div className="absolute inset-0 -z-10 bg-linear-to-r from-bg via-bg/75 to-transparent" />
-              <h3 className="max-w-sm text-3xl font-bold tracking-tight">
-                Same hero, over the sunset photo
+            <div className="flex min-h-72 flex-col justify-center gap-4 rounded-3xl border border-border bg-hero p-8 shadow-soft">
+              <p className="text-xs font-semibold tracking-widest text-accent uppercase">
+                Pure CSS gradient
+              </p>
+              <h3 className="text-3xl font-bold tracking-tight">
+                The same sky, drawn in CSS
               </h3>
-              <p className="max-w-xs">
-                The photo fades into the page colour so text stays readable.
+              <p className="max-w-md">
+                Cream to peach to coral-pink to gold, taken from the photo.
+                Crisp at any size, and weighs nothing.
               </p>
             </div>
           </div>
@@ -291,6 +298,6 @@ export default function StyleTile() {
           </div>
         </Section>
       </Container>
-    </main>
+    </div>
   );
 }

@@ -1,27 +1,45 @@
-import Link from "next/link";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { Hero } from "@/components/sections/Hero";
+import { Section, SectionHeading } from "@/components/ui/Section";
+
+// Placeholder sections so the header links have somewhere to go.
+// Each one is replaced in its own phase.
+const upcoming = [
+  { id: "work", eyebrow: "Work", title: "Recent work", phase: 4 },
+  {
+    id: "about",
+    eyebrow: "About",
+    title: "About Ben C",
+    phase: 6,
+    tinted: true,
+  },
+  {
+    id: "testimonials",
+    eyebrow: "Testimonials",
+    title: "Kind words",
+    phase: 6,
+  },
+  {
+    id: "contact",
+    eyebrow: "Contact",
+    title: "Get in touch",
+    phase: 7,
+    tinted: true,
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-5 bg-hero p-8 text-center">
-      <p className="text-sm font-semibold tracking-widest text-accent uppercase">
-        Phase 2 · Design tokens
-      </p>
-      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-        Apps by Ben C
-      </h1>
-      <p className="max-w-md">
-        The real page starts in Phase 3. For now, have a look at the style tile.
-      </p>
-      <div className="flex items-center gap-3">
-        <Link
-          href="/style-tile"
-          className="font-semibold text-accent underline underline-offset-4"
-        >
-          Open the style tile →
-        </Link>
-        <ThemeToggle />
-      </div>
-    </main>
+    <>
+      <Hero />
+      {upcoming.map((s) => (
+        <Section key={s.id} id={s.id} tinted={s.tinted}>
+          <SectionHeading
+            eyebrow={s.eyebrow}
+            title={s.title}
+            intro={`Coming in Phase ${s.phase}.`}
+          />
+        </Section>
+      ))}
+    </>
   );
 }

@@ -4,8 +4,9 @@ import { THEME_STORAGE_KEY, type Theme } from "@/lib/theme";
 
 /**
  * Flips between light and dark and remembers the choice.
- * The sun/moon icon is picked by CSS from <html data-theme>, so the button
- * renders identically on the server and never causes a hydration mismatch.
+ * The icon shows the current theme (sun = light, moon = dark). CSS picks it
+ * from <html data-theme>, so the button renders identically on the server
+ * and never causes a hydration mismatch.
  */
 export function ThemeToggle({ className = "" }: { className?: string }) {
   function toggle() {
@@ -27,11 +28,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       title="Toggle dark mode"
       className={`inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface text-text shadow-soft transition-colors hover:border-accent hover:text-accent ${className}`}
     >
-      {/* Moon: shown in light mode */}
+      {/* Moon: shows the current theme is dark */}
       <svg
         aria-hidden="true"
         viewBox="0 0 24 24"
-        className="size-5 dark:hidden"
+        className="hidden size-5 dark:block"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
@@ -40,11 +41,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       >
         <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
       </svg>
-      {/* Sun: shown in dark mode */}
+      {/* Sun: shows the current theme is light */}
       <svg
         aria-hidden="true"
         viewBox="0 0 24 24"
-        className="hidden size-5 dark:block"
+        className="size-5 dark:hidden"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"

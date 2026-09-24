@@ -28,6 +28,7 @@
   --coral: #ee8a68; /* decoration */
   --gold: #f4c977; /* decoration */
   --slate: #56697a; /* sky slate: secondary accent, safe for text */
+  --ink: #2e2a2c; /* charcoal in both themes, for text on peach/coral/gold */
 
   --shadow-color: 30 20% 30%;
   --hero-gradient: linear-gradient(
@@ -89,6 +90,7 @@
   --color-coral: var(--coral);
   --color-gold: var(--gold);
   --color-slate: var(--slate);
+  --color-ink: var(--ink);
 
   --font-sans: var(--font-body-face);
   --font-heading: var(--font-heading-face);
@@ -105,7 +107,69 @@
   background-image: var(--hero-gradient);
 }
 
+/*
+ * Hero wash: page colour over the photo so the text stays readable.
+ * Stops are measured from the text column (--col), not the screen edge.
+ * Left: a fixed-length S-curve ramp that reaches full strength just before
+ * the text. On wide screens the whole ramp is visible, so the photo shows at
+ * the screen edge; as the screen narrows, the ramp slides off the left edge
+ * and only its faintest start remains. No breakpoint, so nothing snaps. Two
+ * soft flares at the top and bottom bow its edge gently inward (an hourglass).
+ * Right: full strength behind the text, then a fade out to the photo, its
+ * start, middle and end gently rounded (Gaussian-smoothed) to hide seams.
+ */
+@utility hero-wash {
+  --col: max(0px, 50% - 36rem); /* left edge of the 72rem content column */
+  --ramp-end: calc(var(--col) * 0.75); /* full strength, before the text */
+  --ramp: 24rem; /* fixed length of the left ramp */
+  --flare: color-mix(in oklab, var(--bg) 70%, transparent);
+  background-image:
+    radial-gradient(
+      ellipse 18rem 55% at calc(var(--col) * 0.35) 0%,
+      var(--flare),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 18rem 55% at calc(var(--col) * 0.35) 100%,
+      var(--flare),
+      transparent
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--bg) 60%, transparent)
+        calc(var(--ramp-end) - var(--ramp) * 1),
+      color-mix(in oklab, var(--bg) 63.3%, transparent)
+        calc(var(--ramp-end) - var(--ramp) * 0.8),
+      color-mix(in oklab, var(--bg) 71.3%, transparent)
+        calc(var(--ramp-end) - var(--ramp) * 0.6),
+      color-mix(in oklab, var(--bg) 80.7%, transparent)
+        calc(var(--ramp-end) - var(--ramp) * 0.4),
+      color-mix(in oklab, var(--bg) 88.7%, transparent)
+        calc(var(--ramp-end) - var(--ramp) * 0.2),
+      color-mix(in oklab, var(--bg) 92%, transparent) var(--ramp-end),
+      /* Right-hand fade, with its corners gently rounded so there are no seams. */
+        color-mix(in oklab, var(--bg) 92%, transparent) calc(var(--col) + 18rem),
+      color-mix(in oklab, var(--bg) 91.8%, transparent) calc(var(--col) + 22rem),
+      color-mix(in oklab, var(--bg) 89.9%, transparent) calc(var(--col) + 26rem),
+      color-mix(in oklab, var(--bg) 84.7%, transparent) calc(var(--col) + 30rem),
+      color-mix(in oklab, var(--bg) 77.8%, transparent) calc(var(--col) + 34rem),
+      color-mix(in oklab, var(--bg) 70.6%, transparent) calc(var(--col) + 38rem),
+      color-mix(in oklab, var(--bg) 63.1%, transparent) calc(var(--col) + 42rem),
+      color-mix(in oklab, var(--bg) 54.1%, transparent) calc(var(--col) + 46rem),
+      color-mix(in oklab, var(--bg) 43.6%, transparent) calc(var(--col) + 50rem),
+      color-mix(in oklab, var(--bg) 32.7%, transparent) calc(var(--col) + 54rem),
+      color-mix(in oklab, var(--bg) 21.8%, transparent) calc(var(--col) + 58rem),
+      color-mix(in oklab, var(--bg) 11.3%, transparent) calc(var(--col) + 62rem),
+      color-mix(in oklab, var(--bg) 3.3%, transparent) calc(var(--col) + 66rem),
+      transparent calc(var(--col) + 70rem)
+    );
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: var(--bg);
     color: var(--text);

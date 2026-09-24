@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Nunito_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { SkipLink } from "@/components/layout/SkipLink";
+import { site } from "@/content/site";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -15,9 +19,8 @@ const bodyFont = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Apps by Ben C",
-  description:
-    "Ben C, a full-stack web and software developer in Canberra, Australia.",
+  title: site.brand,
+  description: site.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -31,7 +34,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <SkipLink />
+        <Header />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }
