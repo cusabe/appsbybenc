@@ -1,25 +1,147 @@
 @import "tailwindcss";
 
-/* Placeholder colours; the "Ngunnawal Skies" tokens replace these in Phase 2. */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * "Ngunnawal Skies" design tokens.
+ * Colours are sampled from public/images/ngunnawal-skies.jpg: slate sky,
+ * charcoal cloud, coral streaks and a gold horizon.
+ * Edit the hex values here; every component reads from these variables.
+ * The /style-tile page shows each one with live contrast ratios.
+ */
+
+/* Light: "Sunset" */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #fff8f1; /* warm cream page background */
+  --surface: #ffffff; /* cards */
+  --surface-2: #fceee4; /* tinted panels, alternating sections */
+  --text: #2e2a2c; /* cloud charcoal: body text */
+  --heading: var(--slate); /* h1–h4; set to var(--text) for charcoal headings */
+  --muted: #5e5658; /* secondary text */
+  --border: #e6d3c5;
+
+  --accent: #a8471f; /* burnt orange: links, buttons, focus rings */
+  --accent-contrast: #ffffff; /* text on accent */
+
+  --peach: #f6b48f; /* pastel orange: decoration only, never text */
+  --coral: #ee8a68; /* decoration */
+  --gold: #f4c977; /* decoration */
+  --slate: #56697a; /* sky slate: secondary accent, safe for text */
+
+  --shadow-color: 30 20% 30%;
+  --hero-gradient: linear-gradient(
+    180deg,
+    #fff8f1 0%,
+    #fde6d6 40%,
+    #f9c7ae 70%,
+    #f6c3bd 85%,
+    #f8dc9c 100%
+  );
 }
+
+/* Dark: "Dusk" */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #1b1e29; /* deep dusk navy */
+  --surface: #242735;
+  --surface-2: #2f2c3d; /* dusky violet */
+  --text: #f5ede4; /* warm off-white */
+  --heading: var(--slate);
+  --muted: #bdb3ad;
+  --border: #3f3e52;
+
+  --accent: #ffb07c; /* orange glow */
+  --accent-contrast: #1b1e29;
+
+  --peach: #f6b48f;
+  --coral: #f08b69;
+  --gold: #f2c673;
+  --slate: #9db1c0;
+
+  --shadow-color: 235 30% 5%;
+  --hero-gradient: linear-gradient(
+    180deg,
+    #1b1e29 0%,
+    #2f2c3d 40%,
+    #5e3f4d 65%,
+    #c9785c 88%,
+    #f2c673 100%
+  );
+}
+
+/* Dark mode follows the system until the visitor picks a theme.
+   The inline script in layout.tsx sets data-theme before first paint. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-text: var(--text);
+  --color-heading: var(--heading);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-peach: var(--peach);
+  --color-coral: var(--coral);
+  --color-gold: var(--gold);
+  --color-slate: var(--slate);
+
+  --font-sans: var(--font-body-face);
+  --font-heading: var(--font-heading-face);
+
+  --shadow-soft:
+    0 1px 2px hsl(var(--shadow-color) / 0.06),
+    0 4px 16px hsl(var(--shadow-color) / 0.08);
+  --shadow-lifted:
+    0 2px 4px hsl(var(--shadow-color) / 0.08),
+    0 12px 32px hsl(var(--shadow-color) / 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility bg-hero {
+  background-image: var(--hero-gradient);
+}
+
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body-face), ui-sans-serif, system-ui, sans-serif;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading-face), ui-sans-serif, system-ui, sans-serif;
+    text-wrap: balance;
+  }
+
+  /* All headings use the softer sky slate. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--heading);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }

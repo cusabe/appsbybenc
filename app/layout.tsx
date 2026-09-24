@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Nunito_Sans, Plus_Jakarta_Sans } from "next/font/google";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
-// Placeholder font; the real heading/body pair arrives in Phase 2.
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Font pair: swap these two imports to try another pairing (see /style-tile).
+const headingFont = Plus_Jakarta_Sans({
+  variable: "--font-heading-face",
+  subsets: ["latin"],
+});
+
+const bodyFont = Nunito_Sans({
+  variable: "--font-body-face",
   subsets: ["latin"],
 });
 
@@ -16,7 +22,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-AU" className={`${geistSans.variable} h-full antialiased`}>
+    // suppressHydrationWarning: the theme script sets data-theme before React loads.
+    <html
+      lang="en-AU"
+      className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

@@ -50,7 +50,7 @@ PortfolioWebsite/                  (git repo "appsbybenc")
 │  ├─ robots.ts
 │  ├─ icon.png / apple-icon.png / favicon.ico
 │  ├─ work/[slug]/page.tsx         # case study pages
-│  └─ style-tile/page.tsx          # temporary design playground (noindex, removed before launch)
+│  └─ style-tile/page.tsx          # design playground; kept for a future "How I built this" section
 ├─ components/
 │  ├─ layout/    Header, MobileMenu, ThemeToggle, Footer, SkipLink
 │  ├─ sections/  Hero, FeaturedWork, ClientWork, Skills, Testimonials, About, Contact
@@ -150,11 +150,12 @@ I checked the brief's placeholder colours for contrast (WCAG AA needs **4.5:1** 
 
 A heading font plus a body font is still standard and suits this design.
 
-- **Build with:** **Plus Jakarta Sans** (headings) + **Inter** (body). Warm but professional, and very readable.
-- Alternative A, softer/rounder: **Outfit** + **Nunito Sans**
-- Alternative B, more personality: **Bricolage Grotesque** + **DM Sans**
+- **Chosen (Phase 2):** **Plus Jakarta Sans** (headings) + **Nunito Sans** (body).
+- Still a candidate: **Nunito** headings (rounded and friendly).
+- Considered and dropped: Inter and DM Sans (used in recent apps), Bricolage Grotesque (too busy), Outfit (too heavy). The style tile records all of them.
+- All headings (h1–h4) use the slate `--heading` colour.
 
-The style tile will make swapping easy to compare. It's a two-line change in `layout.tsx`.
+Swapping is a two-line change in `layout.tsx`.
 
 ---
 
@@ -218,7 +219,7 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 - Keyboard pass, focus states, alt text, reduced motion, contrast in both themes
 - Lighthouse runs (target 95+ on all four)
 - **Privacy sweep:** search the built `out/` folder for surname, email, phone and months
-- Remove `/style-tile`
+- Decide whether `/style-tile` goes public now (drop `noindex`) or waits for the "How I built this" section
 - README (edit content, run locally, deploy to Vercel, static export to S3)
 - **Checkpoint:** Lighthouse scores and privacy sweep results reviewed together.
 
@@ -232,10 +233,17 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 
 ---
 
-## 7. Open questions (none block Phase 1)
+## 7. Open questions
 
-1. **Burnt orange:** OK to start with `#A8471F` (the brief's placeholder fails AA)?
-2. **Fonts:** OK to build with Plus Jakarta Sans + Inter?
+1. ~~Burnt orange~~: settled in Phase 2 (`#A8471F`, sampled palette).
+2. ~~Fonts~~: settled in Phase 2.
 3. **GitHub repo:** public or private? Either works with Vercel Hobby. Public doubles as a code sample for employers, but make sure nothing private is committed.
 4. **Domain:** where is `appsbybenc.com` registered? We'll need access to its DNS settings in Phase 9.
 5. **CV extracts:** decide by Phase 6.
+
+---
+
+## 8. Future ideas
+
+- **"How I built this" pages:** a few pages on building the site with Claude Code. The style tile (`/style-tile`) is the first; it shows the palette, contrast checks and the font decisions.
+- **Both hero styles:** CSS gradient for the main hero; the sunset photo for the About band, the footer behind the Acknowledgement of Country, and the social share image.
