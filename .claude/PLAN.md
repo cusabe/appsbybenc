@@ -194,8 +194,9 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 - Client work grid with stack tag filter
 - **Checkpoint:** review card design and wording. Add project images whenever you have them.
 
-### Phase 5: Case study pages
+### Phase 5: Case study pages (deferred until after launch)
 
+- **Deferred (2026-09-28):** launch first, write the case studies later. Draft copy is in `content/projects.ts` (TODOs). Set `caseStudiesPublished = true` there once the pages exist; the featured cards then link to them.
 - `/work/[slug]` with problem / role / stack / what I built / outcome / testimonial
 - Back-link to the home page, prev/next between case studies
 - **Checkpoint:** we refine the BnTRx, Rocket Remit and MojoDojo copy together (and check what you can share).

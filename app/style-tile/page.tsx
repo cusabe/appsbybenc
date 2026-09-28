@@ -213,8 +213,8 @@ export default function StyleTile() {
             <h2 className="text-3xl font-bold tracking-tight">Heading 2</h2>
             <h3 className="text-xl font-semibold">Heading 3</h3>
             <p className="max-w-prose text-lg">
-              Lead paragraph. I build and ship production web apps, from medtech
-              and fintech platforms to small-business websites that just work.
+              Lead paragraph. I build, deploy and maintain production web apps,
+              including medtech and fintech platforms.
             </p>
             <p className="max-w-prose">
               Body text. Before becoming a developer, I spent 15 years in
@@ -257,8 +257,8 @@ export default function StyleTile() {
                   Full-stack developer in Canberra
                 </p>
                 <p style={{ fontFamily: pair.body }}>
-                  I build and ship production web apps, from medtech and fintech
-                  platforms to small-business websites that just work.
+                  I build, deploy and maintain production web apps, including
+                  medtech and fintech platforms.
                 </p>
                 <p className="text-sm text-muted">{pair.note}</p>
               </div>

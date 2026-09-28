@@ -33,7 +33,7 @@ export const site: SiteContent = {
     eyebrow: "Canberra, Australia · Open to full-time and contract roles",
     headline: "Hi, I'm Ben C, a full-stack developer in Canberra.",
     subline:
-      "I build and ship production web apps, from medtech and fintech platforms to small-business websites that just work.",
+      "I build, deploy and maintain production web apps, including medtech and fintech platforms.",
     primaryCta: { label: "See my work", href: "#work" },
     secondaryCta: { label: "Get in touch", href: "#contact" },
   },
