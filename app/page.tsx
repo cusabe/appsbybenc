@@ -1,32 +1,11 @@
 import { clientProjects, featuredProjects } from "@/content/projects";
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ClientWork } from "@/components/work/ClientWork";
 import { FeaturedCard } from "@/components/work/FeaturedCard";
-
-// Placeholder sections so the header links have somewhere to go.
-// Each one is replaced in its own phase.
-const upcoming = [
-  {
-    id: "about",
-    eyebrow: "About",
-    title: "About Ben C",
-    phase: 6,
-  },
-  {
-    id: "testimonials",
-    eyebrow: "Testimonials",
-    title: "Kind words",
-    phase: 6,
-    tinted: true,
-  },
-  {
-    id: "contact",
-    eyebrow: "Contact",
-    title: "Get in touch",
-    phase: 7,
-  },
-];
 
 export default function Home() {
   return (
@@ -59,15 +38,11 @@ export default function Home() {
         <ClientWork projects={clientProjects} />
       </Section>
 
-      {upcoming.map((s) => (
-        <Section key={s.id} id={s.id} tinted={s.tinted}>
-          <SectionHeading
-            eyebrow={s.eyebrow}
-            title={s.title}
-            intro={`Coming in Phase ${s.phase}.`}
-          />
-        </Section>
-      ))}
+      <Testimonials />
+
+      <About />
+
+      <Contact />
     </>
   );
 }

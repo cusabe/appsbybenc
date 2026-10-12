@@ -212,7 +212,7 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 
 - Form with name, email, reason, and message
 - Honeypot, client-side validation, and loading / success / error states
-- LinkedIn + GitHub links and "Full CV and referees available on request"
+- LinkedIn + GitHub links (no "Full CV and referees available on request" line: removed from the public site, 2026-09-28)
 - **Checkpoint:** you create the Web3Forms key, put it in `.env.local`, and we send a real test message end to end.
 
 ### Phase 8: SEO, accessibility and performance polish

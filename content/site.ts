@@ -9,8 +9,8 @@ export const site: SiteContent = {
 
   nav: [
     { label: "Work", href: "/#work" },
-    { label: "About", href: "/#about" },
     { label: "Testimonials", href: "/#testimonials" },
+    { label: "About", href: "/#about" },
     { label: "Contact", href: "/#contact" },
   ],
 
@@ -30,10 +30,10 @@ export const site: SiteContent = {
   ],
 
   hero: {
-    eyebrow: "Canberra, Australia · Open to full-time and contract roles",
+    eyebrow: "Canberra, Australia",
     headline: "Hi, I'm Ben C, a full-stack developer in Canberra.",
     subline:
-      "I build, deploy and maintain production web apps, including medtech and fintech platforms.",
+      "I build, deploy and maintain production web apps, including medtech and fintech platforms. I work remotely from my home office, or on-site as the need and opportunity arises.",
     primaryCta: { label: "See my work", href: "#work" },
     secondaryCta: { label: "Get in touch", href: "#contact" },
   },

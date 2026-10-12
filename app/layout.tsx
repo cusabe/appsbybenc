@@ -16,6 +16,8 @@ const headingFont = Plus_Jakarta_Sans({
 const bodyFont = Nunito_Sans({
   variable: "--font-body-face",
   subsets: ["latin"],
+  // The real italic, for testimonial quotes (rather than a faked slant).
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {

@@ -125,8 +125,10 @@ export interface Testimonial {
   /** Reviewer details. Shown according to `attribution` (see testimonials.ts). */
   name?: string;
   business?: string;
-  /** Where the review is publicly posted, if anywhere. */
-  source?: "Google" | "OzLance" | "Direct";
+  /** Where the review is publicly posted. The card links there as proof. */
+  source?: "Google" | "OzLance";
+  /** Star rating out of 5, as given on the source. */
+  rating?: number;
   /** Overrides the site-wide attribution style for this one testimonial. */
   credit?: string;
 }

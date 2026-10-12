@@ -31,6 +31,16 @@
   --ink: #2e2a2c; /* charcoal in both themes, for text on peach/coral/gold */
 
   --shadow-color: 30 20% 30%;
+  /* Carousel box: the full sunset run diagonally, so every colour fits a wide
+     box and the credit (bottom left) sits over the lighter middle. */
+  --quote-gradient: linear-gradient(
+    to bottom right,
+    #fff8f1 0%,
+    #fde6d6 30%,
+    #f9c7ae 60%,
+    #f6c3bd 80%,
+    #f8dc9c 100%
+  );
   --hero-gradient: linear-gradient(
     180deg,
     #fff8f1 0%,
@@ -62,6 +72,14 @@
   --slate: #9db1c0;
 
   --shadow-color: 235 30% 5%;
+  --quote-gradient: linear-gradient(
+    to bottom right,
+    #1b1e29 0%,
+    #2f2c3d 35%,
+    #5e3f4d 65%,
+    #c9785c 88%,
+    #f2c673 100%
+  );
   --hero-gradient: linear-gradient(
     180deg,
     #1b1e29 0%,
@@ -101,6 +119,18 @@
   --shadow-lifted:
     0 2px 4px hsl(var(--shadow-color) / 0.08),
     0 12px 32px hsl(var(--shadow-color) / 0.14);
+}
+
+/* Scrollable but without a visible scrollbar (the carousel track). */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility bg-quote {
+  background-image: var(--quote-gradient);
 }
 
 @utility bg-hero {

@@ -73,7 +73,7 @@ function CardImage({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Visit the ${project.name} website (opens in a new tab)`}
-          className="block h-full focus-visible:outline-offset-[-3px]"
+          className="relative block h-full focus-visible:outline-offset-[-3px]"
         >
           {img}
         </a>
