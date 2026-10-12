@@ -7,12 +7,14 @@ import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import { Tag } from "@/components/ui/Tag";
 import { fontPairs, type FontStatus } from "./fonts";
+import { lighthouse } from "@/content/lighthouse";
 import { ContrastRow, Swatch } from "./LiveTokens";
+import { ScoreRing } from "./ScoreRing";
 
 // Design playground. Kept as part of a future "How I built this" section.
 // noindex until it is written up for visitors.
 export const metadata: Metadata = {
-  title: "Style tile · Apps by Ben C",
+  title: "Design system",
   robots: { index: false, follow: false },
 };
 
@@ -342,6 +344,29 @@ export default function StyleTile() {
                 Used for alternating sections, like Skills or Testimonials.
               </p>
             </div>
+          </div>
+        </Section>
+
+        <Section title="Lighthouse scores">
+          <p className="max-w-2xl text-sm text-muted">
+            {lighthouse.method} Measured {lighthouse.measured}.
+          </p>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {lighthouse.results.map((r) => (
+              <div
+                key={r.device}
+                className="space-y-5 rounded-2xl border border-border bg-surface p-6 shadow-soft"
+              >
+                <p className="text-xs font-semibold tracking-widest text-muted uppercase">
+                  {r.device}
+                </p>
+                <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+                  {r.scores.map((s) => (
+                    <ScoreRing key={s.label} label={s.label} value={s.value} />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </Section>
       </Container>

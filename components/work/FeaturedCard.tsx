@@ -20,28 +20,49 @@ export function FeaturedCard({
   const { featured } = project;
   if (!featured) return null;
 
+  const art = project.image ? (
+    <Image
+      src={project.image.src}
+      alt={project.image.alt}
+      fill
+      sizes="(min-width: 1024px) 50vw, 100vw"
+      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+    />
+  ) : (
+    <div
+      aria-hidden="true"
+      className="flex h-full items-end bg-hero p-8 transition-transform duration-500 group-hover:scale-[1.03]"
+    >
+      <span className="font-heading text-4xl font-extrabold tracking-tight text-heading/80 sm:text-5xl">
+        {project.name}
+      </span>
+    </div>
+  );
+
   return (
     <article className="group relative grid overflow-hidden rounded-3xl border border-border bg-surface shadow-soft transition-shadow hover:shadow-lifted lg:grid-cols-2">
       <div
         className={`relative aspect-16/10 overflow-hidden lg:aspect-auto lg:min-h-80 ${reverse ? "lg:order-2" : ""}`}
       >
-        {project.image ? (
-          <Image
-            src={project.image.src}
-            alt={project.image.alt}
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-        ) : (
-          <div
-            aria-hidden="true"
-            className="flex h-full items-end bg-hero p-8 transition-transform duration-500 group-hover:scale-[1.03]"
+        {project.url ? (
+          <a
+            href={project.url}
+            // Internal pages (like the design system) open in the same tab.
+            {...(project.url.startsWith("/")
+              ? {}
+              : { target: "_blank", rel: "noopener noreferrer" })}
+            aria-label={
+              project.url.startsWith("/")
+                ? `See the ${project.name} design system`
+                : `Visit the ${project.name} website (opens in a new tab)`
+            }
+            // z-10 keeps the picture link above the whole-card case study link.
+            className="relative z-10 block h-full focus-visible:outline-offset-[-3px]"
           >
-            <span className="font-heading text-4xl font-extrabold tracking-tight text-heading/80 sm:text-5xl">
-              {project.name}
-            </span>
-          </div>
+            {art}
+          </a>
+        ) : (
+          art
         )}
       </div>
 

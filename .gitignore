@@ -47,3 +47,7 @@ next-env.d.ts
 
 # local-only source material (CV, old site); never committed
 /private/
+
+# generated responsive images and their size list (scripts/generate-image-sizes.mjs)
+/public/images/_sized/
+/lib/image-sizes.json

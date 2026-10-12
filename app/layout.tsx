@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Nunito_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { SkipLink } from "@/components/layout/SkipLink";
+import { PersonJsonLd } from "@/components/seo/PersonJsonLd";
 import { site } from "@/content/site";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -21,8 +22,31 @@ const bodyFont = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: site.brand,
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.brand} · Full-stack developer in Canberra`,
+    template: `%s · ${site.brand}`,
+  },
   description: site.description,
+  applicationName: site.brand,
+  authors: [{ name: site.name, url: site.url }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_AU",
+    url: "/",
+    siteName: site.brand,
+    title: `${site.brand} · Full-stack developer in Canberra`,
+    description: site.description,
+  },
+  twitter: { card: "summary_large_image" },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fff8f1" },
+    { media: "(prefers-color-scheme: dark)", color: "#1b1e29" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -35,6 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <PersonJsonLd />
       </head>
       <body className="flex min-h-full flex-col">
         <SkipLink />

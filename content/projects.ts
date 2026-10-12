@@ -24,7 +24,7 @@ export const projects: Project[] = [
     client: "Integra Medical",
     category: "Medtech",
     kind: "product",
-    stack: ["React", "Next.js", "Vercel", "Java", "AWS", "SQL"],
+    stack: ["React", "Next.js", "Vercel", "Java", "AWS", "SQL", "Claude"],
     summary:
       "Clinic software for specialist botulinum toxin clinics: patient registration, digital prescriptions, automated re-ordering and stock control.",
     url: "https://bntrx.com.au/",
@@ -56,7 +56,15 @@ export const projects: Project[] = [
     client: "mHITs",
     category: "Fintech",
     kind: "product",
-    stack: ["Angular", "WordPress", "Java", "Groovy/Grails", "AWS", "SQL"],
+    stack: [
+      "Angular",
+      "WordPress",
+      "Java",
+      "Groovy/Grails",
+      "AWS",
+      "SQL",
+      "Claude",
+    ],
     summary:
       "A mobile-number money transfer platform. I extended the live platform from Australia and New Zealand into the United Kingdom.",
     url: "https://www.rocketremit.com/",
@@ -107,6 +115,37 @@ export const projects: Project[] = [
       ],
       outcome: "The app launched successfully with payments in place.",
       // TODO: add anything you can share about the launch.
+    },
+  },
+
+  {
+    slug: "apps-by-ben-c",
+    name: "Apps by Ben C website",
+    category: "Personal portfolio",
+    kind: "product",
+    stack: ["React", "Claude", "Vercel", "Web3Forms"],
+    summary:
+      "This site: redeveloped from the ground up, working with Claude Code.",
+    // The design system page, on this site (opens in the same tab).
+    url: "/style-tile/",
+    image: {
+      src: "/images/projects/apps-by-ben-c.jpg",
+      alt: "The Apps by Ben C home page: “Hi, I'm Ben C, a full-stack developer in Canberra” over a sunset",
+    },
+    featured: {
+      tagline:
+        "Redeveloped this portfolio website from the ground up, working with Claude Code.",
+      // Draft for a future case study page.
+      problem:
+        "The old portfolio was a single-page Google Site aimed at small-business clients. It needed to speak to employers and recruiters too, and to show the work itself.",
+      role: "Designer and developer, directing Claude Code through planning, design, build and launch.",
+      built: [
+        "A static Next.js site with light and dark themes drawn from a Canberra sunset",
+        "Typed content files, so text can change without touching components",
+        "A contact form through Web3Forms, and responsive images made at build time",
+      ],
+      outcome:
+        "Live on Vercel, with the design system and Lighthouse scores published alongside it.",
     },
   },
 

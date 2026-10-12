@@ -143,7 +143,9 @@ export function Carousel({
           onScroll={onScroll}
           tabIndex={0}
           aria-live={autoplay ? "off" : "polite"}
-          className="scrollbar-none flex snap-x snap-mandatory overflow-x-auto rounded-3xl border border-border bg-quote shadow-soft focus-visible:outline-offset-4"
+          // relative: keeps absolutely positioned bits (screen-reader labels)
+          // inside the scroll area, so hidden slides can't widen the page.
+          className="relative scrollbar-none flex snap-x snap-mandatory overflow-x-auto rounded-3xl border border-border bg-quote shadow-soft focus-visible:outline-offset-4"
         >
           {trackSlides.map((slide, i) => (
             <div
@@ -189,7 +191,7 @@ export function Carousel({
           <span aria-hidden="true">‹</span>
         </button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center">
           {slides.map((slide, i) => (
             <button
               key={slide.key}
@@ -197,10 +199,18 @@ export function Carousel({
               onClick={() => goTo(i)}
               aria-label={`Show review ${i + 1} of ${count}`}
               aria-current={i === index ? "true" : undefined}
-              className={`h-2.5 rounded-full transition-all ${
-                i === index ? "w-6 bg-accent" : "w-2.5 bg-border hover:bg-muted"
-              }`}
-            />
+              // A 24px tap area around a small visible dot.
+              className="group/dot grid h-6 min-w-6 place-items-center"
+            >
+              <span
+                aria-hidden="true"
+                className={`h-2.5 rounded-full transition-all ${
+                  i === index
+                    ? "w-6 bg-accent"
+                    : "w-2.5 bg-border group-hover/dot:bg-muted"
+                }`}
+              />
+            </button>
           ))}
         </div>
 

@@ -9,6 +9,10 @@ export interface SiteContent {
   /** The owner's public name: "Ben C". */
   name: string;
   brand: string;
+  /** The live site address, used for metadata, the sitemap and share previews. */
+  url: string;
+  /** Short job title, used in metadata and structured data. */
+  jobTitle: string;
   location: string;
   description: string;
   nav: LinkItem[];
@@ -48,6 +52,7 @@ export const stackTags = [
   "GCP",
   "Vercel",
   "Supabase",
+  "Web3Forms",
   "Lovable",
   "SendGrid",
   "SoundCloud",
@@ -70,6 +75,7 @@ export const stackTags = [
   "Data pipelines",
   "Graphic design",
   "Social media",
+  "Claude",
   "Statistics",
   "IT support",
 ] as const;

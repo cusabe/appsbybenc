@@ -14,9 +14,9 @@ export default function Home() {
 
       <Section id="work">
         <SectionHeading
-          eyebrow="Recent work"
-          title="Production builds"
-          intro="Recent launches in medtech, fintech and a digital startup."
+          eyebrow="Featured work"
+          title="Selected projects"
+          intro="Web apps and websites I've worked on."
         />
         <div className="space-y-8">
           {featuredProjects.map((project, i) => (

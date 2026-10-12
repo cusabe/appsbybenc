@@ -224,6 +224,7 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 - Decide whether `/style-tile` goes public now (drop `noindex`) or waits for the "How I built this" section
 - README (edit content, run locally, deploy to Vercel, static export to S3)
 - **Checkpoint:** Lighthouse scores and privacy sweep results reviewed together.
+- **Done (2026-10-12):** desktop 100/100/100/100; mobile 88–92/100/100/100 locally. Responsive images via a build-time script and custom loader. Privacy sweep clean. `/style-tile` stays noindex for now; it shows the Lighthouse scores.
 
 ### Phase 9: Deploy
 
@@ -231,6 +232,8 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 - Import it into Vercel (Hobby), and set the env vars
 - Test on the `*.vercel.app` preview URL first
 - Point `appsbybenc.com` at Vercel (DNS change at your domain registrar, replacing Google Sites)
+- In the Web3Forms dashboard, change the form's Website URL from `localhost` to `appsbybenc.com`
+- Re-measure on the live site with PageSpeed Insights (pagespeed.web.dev); update `content/lighthouse.ts`
 - **Checkpoint:** live site checked on your phone and desktop.
 
 ---

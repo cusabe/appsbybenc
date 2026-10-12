@@ -3,9 +3,11 @@ import type { SiteContent } from "@/lib/types";
 export const site: SiteContent = {
   name: "Ben C",
   brand: "Apps by Ben C",
+  url: "https://www.appsbybenc.com",
+  jobTitle: "Full-stack web and software developer",
   location: "Canberra, Australia",
   description:
-    "Ben C, a full-stack web and software developer in Canberra, Australia.",
+    "Ben C is a full-stack web and software developer in Canberra, Australia, building, deploying and maintaining production web apps, including medtech and fintech platforms.",
 
   nav: [
     { label: "Work", href: "/#work" },
