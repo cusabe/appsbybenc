@@ -228,6 +228,8 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 
 ### Phase 9: Deploy
 
+- **Done (2026-10-15):** live at https://www.appsbybenc.com (GitHub cusabe/appsbybenc → Vercel, Route 53 A + www CNAME, apex redirects to www). Web3Forms URL updated and tested. Live Lighthouse: mobile 96 (91–96), desktop 100; all other categories 100. Pushing to `main` redeploys automatically.
+
 - Create the `appsbybenc` repo on GitHub and push
 - Import it into Vercel (Hobby), and set the env vars
 - Test on the `*.vercel.app` preview URL first
