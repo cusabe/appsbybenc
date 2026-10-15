@@ -254,3 +254,12 @@ Each phase ends with: ✅ it runs → 👀 you review → 🔧 we tweak → 💾
 
 - **"How I built this" pages:** a few pages on building the site with Claude Code. The style tile (`/style-tile`) is the first; it shows the palette, contrast checks and the font decisions.
 - **Both hero styles:** the sunset photo is the main hero (zoomed in) and the footer band (panorama). The pure-CSS gradient is a candidate for the final Contact call to action (Phase 7), plus card art.
+
+## 9. To do later (after launch)
+
+- **Case study pages** for the four featured projects (deferred Phase 5). Drafts are in `content/projects.ts`; set `caseStudiesPublished = true` once the pages exist.
+- **Rework the Apps by Ben C wordmark.** The site uses the existing ABC logo as a placeholder. Requirements are in `design/LOGO_BRIEF.md`.
+- **Resolve how the Ben See glasses fit with the wordmark.** The glasses are the favicon and header mark, but they don't quite match the ABC wordmark in style. Decide whether they should share a style or colours, or whether being distinct is fine.
+- **Add older uni projects with JavaScript animations.** The repos are already on GitHub (cusabe). They also feature the Ben See glasses, which may help with the logo question. Possibly a new section or a few cards linking to the repos or live demos.
+- **Testimonial font:** consider a script or serif italic (such as Lora) for quotes instead of italic Nunito Sans.
+- **Housekeeping:** add the site to Google Search Console (the existing `google-site-verification` TXT record may already verify it); delete the two dead NeuroEd demo projects on Vercel; leave the old `neuroed-bntrx` GitHub organisation.
